@@ -6,10 +6,6 @@ public class Main {
 
         uno.start();
         dos.start();
-
-        uno.interrupt();
-        dos.interrupt();
-
         try {
             uno.join();
             dos.join();
