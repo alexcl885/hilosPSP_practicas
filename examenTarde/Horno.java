@@ -14,9 +14,16 @@ public class Horno extends Thread {
 
     @Override
     public void run() {
-        while(!recurso.terminaPrograma()){//mientras que el atributo sea true no para el bucle , no para
+        while(!recurso.isFin()){//mientras que el atributo sea true no para el bucle , no para
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("CREANDO LINGOTE");
             recurso.crearLingote();
         }
+        System.out.println("HORNO TERMINADO");
     }
 
     
