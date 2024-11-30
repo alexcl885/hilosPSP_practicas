@@ -115,6 +115,7 @@ public class BakeryLaRoda{
         synchronized(objetSugar){  //puedo sincronizar este objeto o un object.
             try{
                 while (getSugar() < c && !isFin()){
+                    objetSugar.notify();
                     objetSugar.wait(); //No hay harina, por tanto me bloqueo.
                 }
                 
@@ -132,6 +133,15 @@ public class BakeryLaRoda{
     //seteo la cantidad e azucar. Se notifica a todos los pasteleros.
     public void setCantSugar(int c){
         synchronized(objetSugar){
+            if (sugar < c && !isFin()){
+                try {
+                    objetSugar.wait();
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+            if (!isFin())
             setSugar(getSugar() + c);
             objetSugar.notifyAll();
            

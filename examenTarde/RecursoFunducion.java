@@ -5,6 +5,24 @@ public class RecursoFunducion {
     private int lingotesRecolectados = 0; // Total de lingotes recolectados por personas
     private final int MAX_LINGOTES = 3; // Número máximo de lingotes que pueden recolectarse
 
+
+
+    synchronized public int getLingotesEnHorno() {
+        return this.lingotesEnHorno;
+    }
+
+    synchronized public void setLingotesEnHorno(int lingotesEnHorno) {
+        this.lingotesEnHorno = lingotesEnHorno;
+    }
+
+    synchronized public int getLingotesRecolectados() {
+        return this.lingotesRecolectados;
+    }
+
+    synchronized public void setLingotesRecolectados(int lingotesRecolectados) {
+        this.lingotesRecolectados = lingotesRecolectados;
+    }
+
     public synchronized boolean isFin() {
         return fin;
     }
@@ -35,7 +53,6 @@ public class RecursoFunducion {
         while (lingotesEnHorno == 0 && !fin) {
             wait(); // Espera a que haya lingotes en el horno
         }
-
         if (!fin) {
             lingotesEnHorno--;
             lingotesRecolectados++;
