@@ -22,7 +22,6 @@ public class BakerThread extends Thread {
     public void run() {
         Random r1 = new Random(); //Utilizaré dos semillas diferentes.
         Random r2 = new Random();
-
         //Mientras hayan recursos para ese día.
         while (!bakery.isFin()){  //mientras exista harina y/o agua
 

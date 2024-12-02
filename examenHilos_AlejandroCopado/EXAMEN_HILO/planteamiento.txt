@@ -1,0 +1,12 @@
+El ejercicio lo voy a plantear de la siguiente manera ->
+
+Tengo la clase Cocinero que podra tener platos frios o calientes(atributo booleano).
+Ya dentro del hilo realizare la logica para que si ha hay mas de 100 platos se pararia el bucle y si no pues siguen generando platos.
+
+Tendre la clase segura donde tendre sincronizacion en los metodos  en la cuales realizo la logica de los hilos donde tendre que plantear la finalizacion del programa ademas de rellenar el agua caliente o fria para realizar los platos.
+
+Existe un hilo Temporalizador que rellena la cantidad de cada deposito.
+
+El programa termina cuando ya se hayan entregado 100 platos, da igual sean calientes o frios.
+
+Todo esto se ejectura desde una clase llamada PreparandoPlatos que sera la principal donde hagamos los .start() y los join() para que se puedan realizar bien el programa.
